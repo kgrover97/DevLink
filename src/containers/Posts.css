@@ -1,11 +1,21 @@
 .delete-button{
     float: right;
+}
 
-
+.post-container{
+    padding-left: 2%;
+    vertical-align: top;
+    border: solid;
+    border-width: 1px;
+    border-color: lightgray;
 }
 
 .poster-details{
     font-size: 10px;
     vertical-align: bottom;
+}
+
+.textarea{
+    margin: 1em 30%;
 
 }

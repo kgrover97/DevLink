@@ -109,7 +109,7 @@ export default class Notes extends Component {
                         <LoaderButton
                             block
                             bsStyle="primary"
-                            bsSize="large"
+                            bsSize="small"
                             disabled={!this.validateForm()}
                             type="submit"
                             isLoading={this.state.isLoading}
@@ -119,7 +119,7 @@ export default class Notes extends Component {
                     </form>
                 </div>
                 <ListGroup>
-                    <h1>Comments Section</h1>
+                    <h3>Comments Section</h3>
                     <ul className="list-group">
                         {this.state.comments.length > 0 ? this.renderCommentsList(this.state.comments) : this.renderNoComments()}
                     </ul>
@@ -152,12 +152,12 @@ export default class Notes extends Component {
         return (
             <div className="Posts">
                 <div className="post-info">
-                    {this.state.post && <text>
-                        <h1>Post Title</h1>
-                        <h2>{this.state.post.title}</h2>
-                        <h1>Post Body</h1>
-                        <h2>{this.state.body}</h2>
-                    </text>}
+                    {this.state.post && <div className="card">
+                        <div className="card-block">
+                        <h4 className="card-title">{this.state.post.title}</h4>
+                        <p className="card-text">{this.state.body}</p>
+                        </div>
+                    </div>}
                 </div>
                 <div className="comment-writer">
                 </div>
