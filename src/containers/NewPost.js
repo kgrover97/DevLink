@@ -77,7 +77,7 @@ export default class NewNote extends Component {
             <option value="projects">Project</option>
             <option value="social">Social</option>
           </select>
-          <h4>Description</h4>
+          <h4>Body</h4>
           <FormGroup controlId="body">
             <FormControl
               onChange={this.handleChange}

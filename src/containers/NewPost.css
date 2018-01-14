@@ -3,6 +3,7 @@
 }
 
 .NewNote form textarea {
-  height: 300px;
+  height: 800px;
   font-size: 24px;
+  resize: vertical;
 }
