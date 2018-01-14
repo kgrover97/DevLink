@@ -4,10 +4,13 @@
   "private": true,
   "dependencies": {
     "amazon-cognito-identity-js": "^1.31.0",
+    "aws-sdk": "^2.181.0",
     "bootstrap": "^3.3.7",
+    "crypto-js": "^3.1.9-1",
     "jquery": "^3.2.1",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.0",
+    "react-bootstrap-dropdown-menu": "^1.1.14",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17"
