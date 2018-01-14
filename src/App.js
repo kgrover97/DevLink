@@ -53,7 +53,7 @@ class App extends Component {
                 <Navbar fluid collapseOnSelect>
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <Link to="/">DevLink</Link>
+                            <Link onClick={this.forceUpdate} to="/">DevLink</Link>
                         </Navbar.Brand>
                         <Navbar.Brand>
                             <Link onClick={this.forceUpdate} to="/category/projects">Projects</Link>

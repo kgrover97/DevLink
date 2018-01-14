@@ -44,7 +44,7 @@ export default class Home extends Component {
         return [{}].concat(posts).map(
             (post, i) =>
                 i !== 0
-                    ? <ListGroupItem
+                    ? <ListGroupItem className = "list-item"
                         key={post.postId}
                         href={`/posts/${post.postId}`}
                         header={post.title.trim().split("\n")[0]}
@@ -52,6 +52,7 @@ export default class Home extends Component {
                         {"Created by " + post.userId + " in category " + post.category + " at " + new Date(post.createdAt).toLocaleString()}
                     </ListGroupItem>
                     : <ListGroupItem
+                        className = "first-item"
                         key="new"
                         href="/posts/new"
                         onClick={this.handlePostClick}
@@ -68,7 +69,7 @@ export default class Home extends Component {
         return (
             <div className="posts">
                 <PageHeader>{category ? (category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()) : "All Posts"}</PageHeader>
-                <ListGroup>
+                <ListGroup classname = "all-posts">
                     {!this.state.isLoading && this.renderPostsList(this.state.posts)}
                 </ListGroup>
             </div>

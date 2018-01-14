@@ -1,6 +1,11 @@
 .Home .lander {
+    color: #A4DDD1;
     padding: 80px 0;
     text-align: center;
+}
+
+.home .header {
+    color: #A4DDD1;
 }
 
 .Home .lander h1 {
@@ -10,6 +15,17 @@
 
 .Home .lander p {
     color: #999;
+}
+
+.Home .list-item list-group-item :hover{
+    background-color: #A4DDD1;
+}
+.Home .first-item{
+    background-color: #A4DDD1;
+}
+
+.Home .all-posts{
+    background-color: black;
 }
 
 .Home .posts h4 {
