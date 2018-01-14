@@ -64,9 +64,10 @@ export default class Home extends Component {
     }
 
     renderPosts() {
+        const category = this.props.match.params.category;
         return (
             <div className="posts">
-                <PageHeader>Your Notes</PageHeader>
+                <PageHeader>{category ? (category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()) : "Your Notes"}</PageHeader>
                 <ListGroup>
                     {!this.state.isLoading && this.renderPostsList(this.state.posts)}
                 </ListGroup>
