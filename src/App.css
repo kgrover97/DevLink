@@ -2,6 +2,10 @@
     margin-top: 15px;
 }
 
+.App .navbar {
+    background-color: #A4DDD1;
+}
+
 .App .navbar-brand {
     font-weight: bold;
 }
