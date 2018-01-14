@@ -128,14 +128,24 @@ export default class Notes extends Component {
         );
     }
 
+    deleteComment(comment){
+        return invokeApig({
+            path: `/comments/delete/${comment.commentId}`,
+            method: "DELETE"
+        });
+    }
+
     renderCommentsList(comments) {
         return [{}].concat(comments).map(
             (comment, i) =>
                 i !== 0
                     ?
                         <li key={comment.commentId} className="list-group-item">
-                            <h4>{comment.body}</h4>
-                            <div className="poster-details">{"Commented by " + comment.userId + " at " + new Date(comment.createdAt).toLocaleString()}</div>
+                            <div>
+                                <button onClick={this.deleteComment.bind(this, comment)} type="button" className="btn btn-danger delete-button">Delete</button>
+                                <h5>{comment.body}</h5>
+                                <div className="poster-details">{"Commented by " + comment.userId + " at " + new Date(comment.createdAt).toLocaleString()}</div>
+                            </div>
                         </li> : null
 
         );
