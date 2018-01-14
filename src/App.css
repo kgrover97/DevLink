@@ -1,14 +1,7 @@
-.post-editor {
-    margin: 1em 20%;
+.App {
+    margin-top: 15px;
 }
 
-.post-editor-button {
-    float: right;
-    margin-top: 10px;
-}
-
-@media (max-width: 900px) {
-    .post-editor{
-        margin: 1em;
-    }
+.App .navbar-brand {
+    font-weight: bold;
 }
