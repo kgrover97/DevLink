@@ -1,14 +1,18 @@
 import React, {Component} from "react";
 import {invokeApig} from "../libs/awsLib";
 import {ListGroup, ListGroupItem} from "react-bootstrap";
+import {FormGroup, FormControl, ControlLabel} from "react-bootstrap";
+import LoaderButton from "../components/LoaderButton";
 
 export default class Notes extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            isLoading: null,
             post: null,
             body: "",
-            comments: []
+            comments: [],
+            newComment: ""
         };
         if (this.post == null) {
             this.getPost();
@@ -31,6 +35,16 @@ export default class Notes extends Component {
         }
     }
 
+    validateForm() {
+        return this.state.body.length > 0;
+    }
+
+    handleChange = event => {
+        this.setState({
+            [event.target.id]: event.target.value
+        });
+    };
+
     getComments() {
         return invokeApig({path: `/comments/${this.props.match.params.id}`});
     }
@@ -39,9 +53,70 @@ export default class Notes extends Component {
         return invokeApig({path: `/posts/single/${this.props.match.params.id}`});
     }
 
+    handleSubmit = async event => {
+        event.preventDefault();
+        const newState = Object.assign({}, this.state);
+        newState.newComment = "";
+        this.setState({isLoading: true});
+
+        try {
+            await this.createComment({
+                postId: this.props.match.params.id,
+                body: this.state.newComment,
+            });
+        } catch (e) {
+            this.setState({isLoading: false});
+            alert(e);
+        }
+
+        this.setState({isLoading: false});
+        newState.isLoading = false;
+
+        try {
+            const commentResults = await this.getComments();
+            newState.comments = commentResults;
+        } catch (e) {
+            alert(e);
+        }
+
+        this.setState(newState);
+        this.forceUpdate();
+    };
+
+    createComment(comment) {
+        return invokeApig({
+            path: "/comments",
+            method: "POST",
+            body: comment
+        });
+    }
+
     renderComments() {
         return (
             <div className="comments">
+                <div className="NewComment">
+                    <form onSubmit={this.handleSubmit}>
+                        <h4>New Comment</h4>
+                        <FormGroup controlId="newComment">
+                            <FormControl
+                                onChange={this.handleChange}
+                                value={this.state.newComment}
+                                bsSize="large"
+                                componentClass="textarea"
+                            />
+                        </FormGroup>
+                        <LoaderButton
+                            block
+                            bsStyle="primary"
+                            bsSize="large"
+                            disabled={!this.validateForm()}
+                            type="submit"
+                            isLoading={this.state.isLoading}
+                            text="Post"
+                            loadingText="Posting"
+                        />
+                    </form>
+                </div>
                 <ListGroup>
                     <h1>Comments Section</h1>
                     {this.state.comments.length > 0 ? this.renderCommentsList(this.state.comments) : this.renderNoComments()}

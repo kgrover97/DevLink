@@ -67,7 +67,7 @@ export default class Home extends Component {
         const category = this.props.match.params.category;
         return (
             <div className="posts">
-                <PageHeader>{category ? (category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()) : "Your Notes"}</PageHeader>
+                <PageHeader>{category ? (category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()) : "All Posts"}</PageHeader>
                 <ListGroup>
                     {!this.state.isLoading && this.renderPostsList(this.state.posts)}
                 </ListGroup>
