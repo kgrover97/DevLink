@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {invokeApig} from "../libs/awsLib";
-import {ListGroup, ListGroupItem} from "react-bootstrap";
-import {FormGroup, FormControl, ControlLabel} from "react-bootstrap";
+import {ListGroup} from "react-bootstrap";
+import {FormGroup, FormControl} from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import "./Posts.css";
 
@@ -97,8 +97,8 @@ export default class Notes extends Component {
             <div className="comments">
                 <div className="NewComment">
                     <form onSubmit={this.handleSubmit}>
-                        <h4>New Comment</h4>
-                        <FormGroup controlId="newComment">
+                        <h4 className="new-comment-header">New Comment</h4>
+                        <FormGroup className="comment-form" controlId="newComment">
                             <FormControl
                                 onChange={this.handleChange}
                                 value={this.state.newComment}
@@ -154,7 +154,7 @@ export default class Notes extends Component {
                 <div className="post-info">
                     {this.state.post && <div className="card">
                         <div className="card-block">
-                        <h4 className="card-title">{this.state.post.title}</h4>
+                        <h2 className="card-title">{this.state.post.title}</h2>
                         <p className="card-text">{this.state.body}</p>
                         </div>
                     </div>}

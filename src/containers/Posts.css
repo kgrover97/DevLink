@@ -2,6 +2,10 @@
     float: right;
 }
 
+.card-title{
+    color: black;
+}
+
 .post-container{
     padding-left: 2%;
     vertical-align: top;
@@ -17,5 +21,29 @@
 
 .textarea{
     margin: 1em 30%;
-
 }
+
+.post-info{
+    padding: 10px;
+    border-radius: 5px;
+    border: solid;
+    border-width: 1px;
+    border-color: #6D929B;
+    background-color: #C1DAD6;
+}
+
+.comment-form{
+    float: left;
+    width: 80%;
+}
+
+p {
+    color: white;
+    size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.list-group-item{
+    background-color: #E8D0A9;
+}
+

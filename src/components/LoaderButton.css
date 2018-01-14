@@ -3,6 +3,21 @@
     top: 2px;
     animation: spin 1s infinite linear;
 }
+
+.btn-primary{
+    color: #fff;
+    background-color: #C1DAD6;
+    border-color: #6D929B;
+    width: 80%;
+
+}
+
+.btn-primary:hover{
+    color: #fff;
+    background-color: #6D929B;
+
+}
+
 @keyframes spin {
     from { transform: scale(1) rotate(0deg); }
     to { transform: scale(1) rotate(360deg); }

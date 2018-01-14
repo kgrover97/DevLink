@@ -50,7 +50,7 @@ class App extends Component {
         return (
             !this.state.isAuthenticating &&
             <div className="App container">
-                <Navbar fluid collapseOnSelect>
+                <Navbar fluid collapseOnSelect className="nav-bar">
                     <Navbar.Header>
                         <Navbar.Brand>
                             <Link to="/">DevLink</Link>
