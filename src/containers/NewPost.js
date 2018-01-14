@@ -13,7 +13,7 @@ export default class NewNote extends Component {
       isLoading: null,
       title: "",
       body: "",
-      category: ""
+      category: "study"
     };
   }
 
