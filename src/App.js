@@ -59,7 +59,7 @@ class App extends Component {
                             <Link onClick={this.forceUpdate} to="/category/projects">Projects</Link>
                         </Navbar.Brand>
                         <Navbar.Brand>
-                            <Link onClick={this.forceUpdate} to="/category/KEVINTEST">Test</Link>
+                            <Link onClick={this.forceUpdate} to="/category/study">Study</Link>
                         </Navbar.Brand>
                         <Navbar.Brand>
                             <Link onClick={this.forceUpdate} to="/category/social">Social</Link>

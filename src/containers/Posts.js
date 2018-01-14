@@ -3,6 +3,7 @@ import {invokeApig} from "../libs/awsLib";
 import {ListGroup, ListGroupItem} from "react-bootstrap";
 import {FormGroup, FormControl, ControlLabel} from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
+import "./Posts.css";
 
 export default class Notes extends Component {
     constructor(props) {
@@ -119,7 +120,9 @@ export default class Notes extends Component {
                 </div>
                 <ListGroup>
                     <h1>Comments Section</h1>
-                    {this.state.comments.length > 0 ? this.renderCommentsList(this.state.comments) : this.renderNoComments()}
+                    <ul className="list-group">
+                        {this.state.comments.length > 0 ? this.renderCommentsList(this.state.comments) : this.renderNoComments()}
+                    </ul>
                 </ListGroup>
             </div>
         );
@@ -130,12 +133,11 @@ export default class Notes extends Component {
             (comment, i) =>
                 i !== 0
                     ?
-                    <ListGroupItem
-                        key={comment.commentId}
-                        header={comment.body}
-                    >
-                        {"Commented by " + comment.userId + " at " + new Date(comment.createdAt).toLocaleString()}
-                    </ListGroupItem> : null
+                        <li key={comment.commentId} className="list-group-item">
+                            <h4>{comment.body}</h4>
+                            <div className="poster-details">{"Commented by " + comment.userId + " at " + new Date(comment.createdAt).toLocaleString()}</div>
+                        </li> : null
+
         );
     }
 
